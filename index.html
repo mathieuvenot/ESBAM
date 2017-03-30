@@ -1,0 +1,709 @@
+<html>
+  <head>
+    <script src="https://npmcdn.com/aframe@0.4.0"></script>
+    <script src="https://npmcdn.com/aframe-animation-component@3.0.1"></script>
+    <script src="https://npmcdn.com/aframe-event-set-component@3.0.1"></script>
+    <script src="https://npmcdn.com/aframe-layout-component@3.0.1"></script>
+    <script src="https://npmcdn.com/aframe-template-component@3.1.1"></script>
+    <script src="http://cdn.rawgit.com/donmccurdy/aframe-extras/v3.1.0/dist/aframe-extras.min.js"></script>
+    <script src="https://rawgit.com/ngokevin/aframe-text-component/master/dist/aframe-text-component.min.js"></script>
+  </head>
+  <body>
+    <a-scene fog="type: linear; color: #000000; near: 0; far: 80" material="fog: True">
+      <a-entity ID="VR-ViewerTemplates">
+        <script ID="VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" type="text / nunjucks">
+          <a-box class="VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" material="color: {{ color }}; opacity: {{ opacity }}; transparent: {{ transparent }}; flatShading: {{ flatShading }}; side: {{ side }}; fog: {{ fog }}; metalness: {{ metalness }}; roughness: {{ roughness }}; wireframe: {{ wireframe }}" position="{{ position }}" rotation="{{ rotation }}" depth="{{ depth }}" height="{{ height }}" width="{{ width }}" event-set__1="_event: mousedown; scale: 1 1 1" event-set__2="_event: mouseup; scale: 1 2.5 1" event-set__3="_event: mouseenter; scale: 1 2.5 1" event-set__4="_event: mouseleave; scale: 1 1 1" set-camera="on: click; target: #VR-camera-walk; position: {{ position }}"></a-box>
+        </script>
+        <script>AFRAME.registerComponent('set-camera', { schema: { on: {type: 'string'}, target: {type: 'selector'}, position :{ type: 'vec3' }, rotation :{ type: 'vec3' }}, init: function () { var data = this.data; var el = this.el; el.addEventListener(data.on, function () { data.target.setAttribute('position', data.position); data.target.setAttribute('rotation', data.rotation); }); } });</script>
+      </a-entity>
+      <a-entity ID="VR-Mesh">
+        <a-entity ID="4efbf5c2-011a-4f0c-bed9-d6e76a719bc7" object-model="loader: object; src: url(model/4efbf5c2-011a-4f0c-bed9-d6e76a719bc7.json);" scale="1 1 1"></a-entity>
+      </a-entity>
+      <a-entity ID="VR-ViewerGeometry">
+        <a-entity ID="VR-Spot-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-1.5 0 1.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#808080" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-1.5 0 4.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#7F7F7F" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-1.5 0 7.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#7B7B7B" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-1.5 0 10.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#757575" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-1.5 0 13.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#707070" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-1.5 0 16.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#6B6B6B" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-1.5 0 19.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#686868" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-1.5 0 22.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#676767" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-1.5 0 25.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#686868" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-1.5 0 28.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#6B6B6B" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-1.5 0 31.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#707070" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-1.5 0 34.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#757575" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-1.5 0 37.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#7B7B7B" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-1.5 0 40.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#7F7F7F" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-1.5 0 43.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#808080" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-4.5 0 1.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#7F7F7F" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-4.5 0 4.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#7A7A7A" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-4.5 0 7.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#727272" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-4.5 0 10.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#6A6A6A" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-4.5 0 13.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#626262" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-4.5 0 16.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#5B5B5B" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-4.5 0 19.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#575757" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-4.5 0 22.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#555555" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-4.5 0 25.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#575757" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-4.5 0 28.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#5B5B5B" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-4.5 0 31.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#626262" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-4.5 0 34.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#6A6A6A" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-4.5 0 37.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#727272" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-4.5 0 40.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#7A7A7A" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-4.5 0 43.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#7F7F7F" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-7.5 0 1.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#7B7B7B" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-7.5 0 4.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#727272" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-7.5 0 7.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#686868" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-7.5 0 10.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#5C5C5C" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-7.5 0 13.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#525252" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-7.5 0 16.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#494949" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-7.5 0 19.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#434343" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-7.5 0 22.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#414141" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-7.5 0 25.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#434343" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-7.5 0 28.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#494949" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-7.5 0 31.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#525252" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-7.5 0 34.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#5C5C5C" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-7.5 0 37.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#686868" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-7.5 0 40.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#727272" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-7.5 0 43.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#7B7B7B" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-10.5 0 1.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#757575" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-10.5 0 4.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#6A6A6A" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-10.5 0 7.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#5C5C5C" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-10.5 0 10.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#4E4E4E" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-10.5 0 13.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#414141" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-10.5 0 16.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#363636" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-10.5 0 19.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#2F2F2F" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-10.5 0 22.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#2D2D2D" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-10.5 0 25.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#2F2F2F" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-10.5 0 28.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#363636" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-10.5 0 31.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#414141" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-10.5 0 34.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#4E4E4E" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-10.5 0 37.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#5C5C5C" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-10.5 0 40.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#6A6A6A" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-10.5 0 43.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#757575" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-13.5 0 1.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#707070" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-13.5 0 4.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#626262" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-13.5 0 7.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#525252" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-13.5 0 10.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#414141" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-13.5 0 13.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#323232" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-13.5 0 16.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#262626" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-13.5 0 19.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#1E1E1E" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-13.5 0 22.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#1B1B1B" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-13.5 0 25.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#1E1E1E" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-13.5 0 28.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#262626" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-13.5 0 31.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#323232" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-13.5 0 34.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#414141" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-13.5 0 37.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#525252" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-13.5 0 40.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#626262" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-13.5 0 43.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#707070" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-16.5 0 1.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#6B6B6B" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-16.5 0 4.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#5B5B5B" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-16.5 0 7.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#494949" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-16.5 0 10.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#363636" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-16.5 0 13.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#262626" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-16.5 0 16.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#181818" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-16.5 0 19.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#0F0F0F" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-16.5 0 22.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#0C0C0C" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-16.5 0 25.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#0F0F0F" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-16.5 0 28.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#181818" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-16.5 0 31.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#262626" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-16.5 0 34.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#363636" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-16.5 0 37.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#494949" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-16.5 0 40.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#5B5B5B" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-16.5 0 43.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#6B6B6B" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-19.5 0 1.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#686868" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-19.5 0 4.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#575757" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-19.5 0 7.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#434343" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-19.5 0 10.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#2F2F2F" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-19.5 0 13.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#1E1E1E" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-19.5 0 16.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#0F0F0F" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-19.5 0 19.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#060606" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-19.5 0 22.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#030303" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-19.5 0 25.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#060606" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-19.5 0 28.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#0F0F0F" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-19.5 0 31.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#1E1E1E" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-19.5 0 34.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#2F2F2F" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-19.5 0 37.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#434343" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-19.5 0 40.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#575757" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-19.5 0 43.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#686868" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-22.5 0 1.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#676767" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-22.5 0 4.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#555555" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-22.5 0 7.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#414141" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-22.5 0 10.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#2D2D2D" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-22.5 0 13.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#1B1B1B" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-22.5 0 16.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#0C0C0C" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-22.5 0 19.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#030303" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-22.5 0 22.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#000000" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-22.5 0 25.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#030303" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-22.5 0 28.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#0C0C0C" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-22.5 0 31.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#1B1B1B" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-22.5 0 34.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#2D2D2D" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-22.5 0 37.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#414141" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-22.5 0 40.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#555555" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-22.5 0 43.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#676767" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-25.5 0 1.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#686868" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-25.5 0 4.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#575757" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-25.5 0 7.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#434343" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-25.5 0 10.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#2F2F2F" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-25.5 0 13.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#1E1E1E" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-25.5 0 16.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#0F0F0F" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-25.5 0 19.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#060606" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-25.5 0 22.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#030303" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-25.5 0 25.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#060606" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-25.5 0 28.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#0F0F0F" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-25.5 0 31.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#1E1E1E" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-25.5 0 34.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#2F2F2F" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-25.5 0 37.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#434343" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-25.5 0 40.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#575757" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-25.5 0 43.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#686868" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-28.5 0 1.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#6B6B6B" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-28.5 0 4.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#5B5B5B" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-28.5 0 7.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#494949" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-28.5 0 10.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#363636" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-28.5 0 13.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#262626" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-28.5 0 16.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#181818" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-28.5 0 19.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#0F0F0F" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-28.5 0 22.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#0C0C0C" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-28.5 0 25.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#0F0F0F" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-28.5 0 28.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#181818" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-28.5 0 31.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#262626" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-28.5 0 34.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#363636" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-28.5 0 37.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#494949" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-28.5 0 40.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#5B5B5B" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-28.5 0 43.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#6B6B6B" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-31.5 0 1.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#707070" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-31.5 0 4.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#626262" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-31.5 0 7.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#525252" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-31.5 0 10.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#414141" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-31.5 0 13.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#323232" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-31.5 0 16.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#262626" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-31.5 0 19.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#1E1E1E" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-31.5 0 22.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#1B1B1B" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-31.5 0 25.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#1E1E1E" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-31.5 0 28.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#262626" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-31.5 0 31.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#323232" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-31.5 0 34.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#414141" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-31.5 0 37.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#525252" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-31.5 0 40.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#626262" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-31.5 0 43.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#707070" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-34.5 0 1.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#757575" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-34.5 0 4.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#6A6A6A" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-34.5 0 7.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#5C5C5C" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-34.5 0 10.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#4E4E4E" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-34.5 0 13.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#414141" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-34.5 0 16.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#363636" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-34.5 0 19.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#2F2F2F" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-34.5 0 22.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#2D2D2D" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-34.5 0 25.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#2F2F2F" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-34.5 0 28.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#363636" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-34.5 0 31.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#414141" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-34.5 0 34.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#4E4E4E" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-34.5 0 37.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#5C5C5C" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-34.5 0 40.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#6A6A6A" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-34.5 0 43.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#757575" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-37.5 0 1.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#7B7B7B" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-37.5 0 4.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#727272" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-37.5 0 7.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#686868" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-37.5 0 10.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#5C5C5C" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-37.5 0 13.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#525252" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-37.5 0 16.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#494949" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-37.5 0 19.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#434343" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-37.5 0 22.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#414141" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-37.5 0 25.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#434343" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-37.5 0 28.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#494949" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-37.5 0 31.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#525252" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-37.5 0 34.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#5C5C5C" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-37.5 0 37.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#686868" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-37.5 0 40.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#727272" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-37.5 0 43.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#7B7B7B" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-40.5 0 1.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#7F7F7F" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-40.5 0 4.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#7A7A7A" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-40.5 0 7.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#727272" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-40.5 0 10.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#6A6A6A" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-40.5 0 13.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#626262" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-40.5 0 16.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#5B5B5B" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-40.5 0 19.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#575757" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-40.5 0 22.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#555555" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-40.5 0 25.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#575757" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-40.5 0 28.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#5B5B5B" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-40.5 0 31.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#626262" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-40.5 0 34.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#6A6A6A" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-40.5 0 37.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#727272" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-40.5 0 40.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#7A7A7A" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-40.5 0 43.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#7F7F7F" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-43.5 0 1.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#808080" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-43.5 0 4.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#7F7F7F" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-43.5 0 7.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#7B7B7B" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-43.5 0 10.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#757575" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-43.5 0 13.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#707070" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-43.5 0 16.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#6B6B6B" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-43.5 0 19.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#686868" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-43.5 0 22.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#676767" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-43.5 0 25.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#686868" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-43.5 0 28.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#6B6B6B" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-43.5 0 31.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#707070" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-43.5 0 34.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#757575" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-43.5 0 37.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#7B7B7B" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-43.5 0 40.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#7F7F7F" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+          <a-entity ID="VR-links-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061">
+            <a-entity template="src: #VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061" data-position="-43.5 0 43.5" data-rotation="0 0.00999999975578367 0" data-depth="3" data-height="1" data-width="3" data-color="#808080" data-opacity="1" data-transparent="false" data-flatShading="false" data-side="front" data-fog="true" data-metalness="0" data-roughness="0.5" data-wireframe="false"></a-entity>
+          </a-entity>
+        </a-entity>
+      </a-entity>
+      <a-entity ID="VR-camera-walk" position="0 0 0" rotation="0 126.295743867142 0">
+        <a-camera user-height="2">
+          <a-cursor ID="cursor-" animation__click="property: scale; startEvents: click; from: 0.1 0.1 0.1; to: 1 1 1; dur: 150 " animation__fusing="property: fusing; startEvents: fusing; from: 0.1 0.1 0.1; to: 1 1 1; dur: 1000 " event-set__1="_event: mouseenter; color: #00FFFF" event-set__2="_event: mouseleave; color: #808080" raycaster="objects: .VR-link-box-c02c6ed9-6d51-45f9-9270-de27a8f2b061"></a-cursor>
+        </a-camera>
+      </a-entity>
+      <a-sky color="Color [A=255, R=0, G=0, B=0]"></a-sky>
+    </a-scene>
+  </body>
+</html>
